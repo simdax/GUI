@@ -24,7 +24,7 @@ MIDICTL{
 						MIDIOut(y).program(x, 123)
 					};
 
-					StaticText(a, 50@20).string_("chan"++x);
+					StaticText(a, 40@20).string_("chan"++x);
 					z=EZNumber(a, 100@25, "bank", [0,32,0,1].asSpec,
 						{arg s;
 							bank=s.value;
