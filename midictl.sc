@@ -17,6 +17,13 @@ MIDICTL{
 					var f={	arg port, chan;
 						MIDIOut(port).bankProg(chan,bank, prgm)
 					};
+
+					Button(a, 30@20)
+					.string_("panic")
+					.action_{
+						MIDIOut(y).program(x, 123)
+					};
+
 					StaticText(a, 50@20).string_("chan"++x);
 					z=EZNumber(a, 100@25, "bank", [0,32,0,1].asSpec,
 						{arg s;
