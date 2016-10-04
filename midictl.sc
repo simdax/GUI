@@ -1,12 +1,16 @@
 MIDICTL{
 	classvar <>window;
-	*new{
+	*new{ arg parent;
 		var a,b;
 		
-		a=FlowView(nil, 450@200, windowTitle:"midi").front;
+		a=FlowView(parent, 450@300, windowTitle:"midi").front;
 		window=a.view.parent;
-		b=TabbedView2(a);
-		MIDIClient.init();
+
+		b=TabbedView2(a,400@300);
+		Button(a).string_("init Midi")
+		.action_{MIDIClient.init()};
+
+		if(MIDIClient.initialized.not){MIDIClient.init()};
 
 		16.do { |y|
 			var bob=b.add("port"++y);

@@ -1,10 +1,13 @@
 (
 var a,b, window;
 
-a=FlowView(nil, 450@200, windowTitle:"midi").front;
+a=FlowView(nil, 450@300, windowTitle:"midi").front;
 window=a.view.parent;
-b=TabbedView2(a);
-//MIDIClient.init();
+
+b=TabbedView2(a,400@300);
+Button(a).string_("init Midi")
+.action_{MIDIClient.init()};
+//EZNumber(a);
 16.do { |y|
 	var bob=b.add("port"++y);
 	bob.scroll.flow{arg a;
